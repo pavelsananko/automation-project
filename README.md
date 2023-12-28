@@ -2,8 +2,7 @@
 
 steam game scraper (for finding deals)
 
-* send a request to the steam store
-  * with filters
+* send a request to the steam store (with filters)
 * get data from the steam store
 * parse it into a list of games
 * sort/group the list
