@@ -10,6 +10,4 @@ steam game scraper (for finding deals)
 * output it in a pretty way
   * include rating, price, discounted price, discount %
   * if possible, include tags/genre/type
-  * if possible, include the length of the game (HowLongToBeat)
-  * if possible, include a rating from a third party
-  * if possible, include the lowest ever price
+  * include length of the game (HowLongToBeat "main story")
