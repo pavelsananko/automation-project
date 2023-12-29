@@ -1,19 +1,27 @@
 import requests
 from bs4 import BeautifulSoup
 
-BASE_URL = 'https://store.steampowered.com/search'
+URL = 'https://store.steampowered.com/search'
+
+MAX_PAGES = 0 # TODO: use to stop the page loop; if 0, go until total_games
 MAX_PRICE = 30
-MAX_RESULTS = 0 # TODO: floor to closest 50 and use to stop the page loop, go until total_games if 0
+EXCLUDE = ['3799', '4085', '9130', '9551']
 
 games = []
 
 
 
 # TODO: do the following for multiple pages
-# TODO: add filters to search
 
 page = 0
-url = f'{BASE_URL}/?start={page * 50}&count=50&maxprice={MAX_PRICE}&category1=998&sort_by=Reviews_DESC&ignore_preferences=1'
+url = f'{URL}/?start={page * 50}&count=50&maxprice={MAX_PRICE}&category1=998&sort_by=Reviews_DESC&ignore_preferences=1'
+
+# add excluded tags if there are any
+
+if len(EXCLUDE) > 0:
+    url += f'&untags={"%2C".join(EXCLUDE)}'
+
+# send request and validate response
 
 response = requests.get(url)
 
@@ -21,7 +29,7 @@ if response.status_code != 200:
     print(f'Error {response.status_code}')
     exit() # TODO: replace with continue when in a loop
 
-# read info
+# parse data from response
 
 content = BeautifulSoup(response.content, 'html.parser')
 
@@ -64,4 +72,4 @@ for row in rows:
 # TODO: output into a file
 
 for game in games:
-    print(game)
+    print(game[0])
