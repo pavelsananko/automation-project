@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
-URL = 'https://store.steampowered.com/search/?start={0}&count=50&maxprice={1}&category1=998&untags={2}&unvrsupport=401&os=win&supportedlang=english&ignore_preferences=1'
-PAGES = 2
+BASE_URL = 'https://store.steampowered.com/search/?start={0}&count=50&maxprice={1}&category1=998&untags={2}&unvrsupport=401&os=win&supportedlang=english&ignore_preferences=1'
+PAGES = 1
 
 MIN_RATING = 80
 MAX_PRICE = 30
@@ -13,14 +13,16 @@ games = []
 # TODO: if PAGES = 0, go until total_games
 
 for page in range(PAGES):
-    url = URL.format(page * 50, MAX_PRICE, "%2C".join(BLACKLIST))
+    print(f'Fetching page {page + 1}/{PAGES}')
+
+    url = BASE_URL.format(page * 50, MAX_PRICE, "%2C".join(BLACKLIST))
 
     # send request and validate response
 
     response = requests.get(url)
 
     if response.status_code != 200:
-        print(f'Error getting page {page} ({response.status_code})')
+        print(f'Error fetching page {page + 1} ({response.status_code})')
 
         continue
 
@@ -78,5 +80,3 @@ for page in range(PAGES):
 
 for game in games:
     print(game[1:])
-
-print('Total games: ', len(games))
