@@ -5,7 +5,7 @@ BASE_URL = 'https://store.steampowered.com/search/?start={0}&count=50&maxprice={
 PAGES = 1
 
 MIN_REVIEW_PERCENT = 80
-MIN_REVIEW_COUNT = 100
+MIN_REVIEW_COUNT = 1000
 MAX_PRICE = 30
 
 games = []
@@ -66,10 +66,10 @@ for page in range(max(PAGES, 1)):
 
         if review_percent >= MIN_REVIEW_PERCENT and review_count >= MIN_REVIEW_COUNT:
             games.append([link, name, review_percent, review_count, price, discount])
-    
-    # if somehow the last page is reached, exit the loop early
 
-    if len(rows) < 50:
+    # if somehow the last page is reached before page limit, exit the loop early
+
+    if len(rows) == 0:
         break
 
 # TODO: sort results
