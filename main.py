@@ -43,15 +43,7 @@ for page in range(max(PAGES, 1)):
         review_percent = int(elem.split(' ')[0][:-1])
         review_count = int(elem.split(' ')[3].replace(',', ''))
 
-        # get original price
-
-        elem = row.find(class_='discount_original_price')
-        if elem:
-            price_original = float(elem.text[:-1].replace(',', '.'))
-        else:
-            price_original = 0.0
-
-        # get final price
+        # get price
 
         elem = row.find(class_='discount_final_price')
         if elem and elem.text != 'Free':
@@ -59,10 +51,11 @@ for page in range(max(PAGES, 1)):
         else:
             price = 0.0
 
-        # calculate discount
+        # get discount
 
-        if price_original != 0.0:
-            discount = round((1 - price / price_original) * 100)
+        elem = row.find(class_='discount_pct')
+        if elem:
+            discount = int(elem.text[1:-1])
         else:
             discount = 0
 
