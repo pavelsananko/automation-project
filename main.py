@@ -10,10 +10,8 @@ BLACKLIST = ['3799', '4085', '9130', '9551']
 
 games = []
 
-# TODO: if PAGES = 0, go until total_games
-
-for page in range(PAGES):
-    print(f'Fetching page {page + 1}/{PAGES}')
+for page in range(max(PAGES, 1)):
+    print(f'Fetching page {page + 1}/{max(PAGES, 1)}')
 
     url = BASE_URL.format(page * 50, MAX_PRICE, "%2C".join(BLACKLIST))
 
@@ -67,8 +65,6 @@ for page in range(PAGES):
             discount = round((1 - price / price_original) * 100)
         else:
             discount = 0
-
-        # TODO: if possible, include tags/genre/type
 
         # filter and add game to list
 
