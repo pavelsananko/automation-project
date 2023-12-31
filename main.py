@@ -9,15 +9,16 @@ MIN_REVIEW_COUNT = 1000
 MAX_PRICE = 30
 TAGS = []
 
+# fetch games from steam store
+
 games = []
 
 for page in range(max(PAGES, 1)):
     print(f'Fetching page {page + 1}/{max(PAGES, 1)}')
 
-    url = BASE_URL.format(page * 50, MAX_PRICE)
-
     # send request and validate response
 
+    url = BASE_URL.format(page * 50, MAX_PRICE)
     response = requests.get(url, timeout=30)
 
     if response.status_code != 200:
@@ -44,11 +45,11 @@ for page in range(max(PAGES, 1)):
 
         if elem:
             review_text = elem.get('data-tooltip-html').split('<br>')[1]
-            review_percent = int(review_text.split(' ')[0][:-1])
-            review_count = int(review_text.split(' ')[3].replace(',', ''))
+            review_pct = int(review_text.split(' ')[0][:-1])
+            review_cnt = int(review_text.split(' ')[3].replace(',', ''))
         else:
-            review_percent = 0
-            review_count = 0
+            review_pct = 0
+            review_cnt = 0
 
         # get price
 
@@ -68,32 +69,35 @@ for page in range(max(PAGES, 1)):
         else:
             discount = 0
 
-        # filter and add game to list
+        # add game to list
 
-        if review_percent < MIN_REVIEW_PERCENT:
+        if review_pct < MIN_REVIEW_PERCENT:
             continue
 
-        if review_count < MIN_REVIEW_COUNT:
+        if review_cnt < MIN_REVIEW_COUNT:
             continue
 
         if len(TAGS) > 0 and not any(tag in tags for tag in TAGS):
             continue
 
         games.append({'link': link, 'name': name, 'tags': tags,
-                      'review_pct': review_percent, 'review_cnt': review_count,
+                      'review_pct': review_pct, 'review_cnt': review_cnt,
                       'price': price, 'discount': discount})
 
-    # if the last page is reached before page limit, exit the loop early
+    # if last page is reached before page limit, exit loop early
 
     if len(rows) == 0:
         break
 
+# sort results by discount
 
+games.sort(key=lambda row: row['discount'], reverse=True)
 
-# TODO: sort results
+# write results to file
+
 # TODO: output into a file
-
-for game in games:
-    print(game['name'])
+#with open('test.txt', '+w') as file:
+#    for game in games:
+#        pass
 
 print(f'\n{len(games)} games found!')
