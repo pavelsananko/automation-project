@@ -7,6 +7,7 @@ PAGES = 1
 MIN_REVIEW_PERCENT = 80
 MIN_REVIEW_COUNT = 1000
 MAX_PRICE = 30
+TAGS = []
 
 games = []
 
@@ -31,6 +32,11 @@ for page in range(max(PAGES, 1)):
     for row in rows:
         link = row.get('href').split('?')[0]
         name = row.find(class_='title').text
+
+        # get tags
+
+        tags = row.get('data-ds-tagids')[1:-1].split(',')
+        tags = [int(tag) for tag in tags]
 
         # get reviews
 
@@ -63,9 +69,19 @@ for page in range(max(PAGES, 1)):
             discount = 0
 
         # filter and add game to list
+            
+        if review_percent < MIN_REVIEW_PERCENT:
+            continue
 
-        if review_percent >= MIN_REVIEW_PERCENT and review_count >= MIN_REVIEW_COUNT:
-            games.append([link, name, review_percent, review_count, price, discount])
+        if review_count < MIN_REVIEW_COUNT:
+            continue
+
+        if len(TAGS) > 0 and not any(tag in tags for tag in TAGS):
+            continue
+
+        games.append({'link': link, 'name': name, 'tags': tags,
+                      'review_pct': review_percent, 'review_cnt': review_count,
+                      'price': price, 'discount': discount})
 
     # if somehow the last page is reached before page limit, exit the loop early
 
@@ -76,6 +92,6 @@ for page in range(max(PAGES, 1)):
 # TODO: output into a file
 
 for game in games:
-    print(game[1:])
+    print(game['name'])
 
 print(f'{len(games)} games found.')
