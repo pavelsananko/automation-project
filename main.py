@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from openpyxl import Workbook
 
 BASE_URL = 'https://store.steampowered.com/search/?start={0}&count=50&maxprice={1}&category1=998&untags=3799%2C4085%2C9130%2C9551&unvrsupport=401&os=win&supportedlang=english'
 PAGES = 1
@@ -69,7 +70,7 @@ for page in range(max(PAGES, 1)):
         else:
             discount = 0
 
-        # add game to list
+        # filter and add to list
 
         if review_pct < MIN_REVIEW_PERCENT:
             continue
@@ -89,6 +90,8 @@ for page in range(max(PAGES, 1)):
     if len(rows) == 0:
         break
 
+print('Fetching complete')
+
 # sort results by discount
 
 games.sort(key=lambda row: row['discount'], reverse=True)
@@ -98,6 +101,9 @@ games.sort(key=lambda row: row['discount'], reverse=True)
 # TODO: output into a file
 #with open('test.txt', '+w') as file:
 #    for game in games:
-#        pass
+#        file.write(str(game) + '\n')
+
+workbook = Workbook()
+workbook.save('test.xlsx')
 
 print(f'\n{len(games)} games found!')
