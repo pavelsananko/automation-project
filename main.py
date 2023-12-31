@@ -69,7 +69,7 @@ for page in range(max(PAGES, 1)):
             discount = 0
 
         # filter and add game to list
-            
+
         if review_percent < MIN_REVIEW_PERCENT:
             continue
 
@@ -83,10 +83,12 @@ for page in range(max(PAGES, 1)):
                       'review_pct': review_percent, 'review_cnt': review_count,
                       'price': price, 'discount': discount})
 
-    # if somehow the last page is reached before page limit, exit the loop early
+    # if the last page is reached before page limit, exit the loop early
 
     if len(rows) == 0:
         break
+
+
 
 # TODO: sort results
 # TODO: output into a file
@@ -94,4 +96,4 @@ for page in range(max(PAGES, 1)):
 for game in games:
     print(game['name'])
 
-print(f'{len(games)} games found.')
+print(f'\n{len(games)} games found!')
