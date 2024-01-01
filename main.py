@@ -8,9 +8,31 @@ PAGES = 10
 MIN_REVIEW_PERCENT = 80
 MIN_REVIEW_COUNT = 1000
 MAX_PRICE = 30
+TAGS = ['platformer', 'fps', 'puzzle']
 
-# platformer, fps, puzzle
-TAGS = [1625, 1663, 1664]
+# fetch tag ids
+
+tag_ids = []
+
+for tag in TAGS:
+    print(f'Fetching tag "{tag}"')
+
+    url = f'https://store.steampowered.com/tags/en/{tag}'
+    response = requests.get(url, timeout=30)
+
+    if response.status_code != 200:
+        print(f'Error fetching tag "{tag}" ({response.status_code})')
+        continue
+
+    content = BeautifulSoup(response.content, 'html.parser')
+    elem = content.find(id='application_config')
+
+    tag_id = elem.get('data-ch_hub_data')
+    tag_id = int(tag_id.split(':')[-1][:-1])
+
+    tag_ids.append(tag_id)
+
+print()
 
 # fetch games from steam store
 
@@ -80,7 +102,7 @@ for page in range(max(PAGES, 1)):
         if review_cnt < MIN_REVIEW_COUNT:
             continue
 
-        if len(TAGS) > 0 and not any(tag in tags for tag in TAGS):
+        if len(tag_ids) > 0 and not any(tag in tags for tag in tag_ids):
             continue
 
         games.append({'name': name, 'link': link, 'tags': tags,
@@ -91,8 +113,6 @@ for page in range(max(PAGES, 1)):
 
     if len(rows) == 0:
         break
-
-print('Fetching complete')
 
 # sort games by discount
 
