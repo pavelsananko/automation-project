@@ -1,14 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
 from openpyxl import Workbook
-
-BASE_URL = 'https://store.steampowered.com/search/?start={0}&count=50&maxprice={1}&category1=998&untags=3799%2C4085%2C9130%2C9551&unvrsupport=401&os=win&supportedlang=english'
-PAGES = 10
+from openpyxl.styles import Alignment
 
 MIN_REVIEW_PERCENT = 80
 MIN_REVIEW_COUNT = 1000
 MAX_PRICE = 30
 TAGS = ['platformer', 'fps', 'puzzle']
+
+PAGES = 10
 
 # fetch tag ids
 
@@ -43,7 +43,7 @@ for page in range(max(PAGES, 1)):
 
     # send request and validate response
 
-    url = BASE_URL.format(page * 50, MAX_PRICE)
+    url = f'https://store.steampowered.com/search/?start={page * 50}&count=50&maxprice={MAX_PRICE}&category1=998&untags=3799%2C4085%2C9130%2C9551&unvrsupport=401&os=win&supportedlang=english'
     response = requests.get(url, timeout=30)
 
     if response.status_code != 200:
@@ -105,7 +105,7 @@ for page in range(max(PAGES, 1)):
         if len(tag_ids) > 0 and not any(tag in tags for tag in tag_ids):
             continue
 
-        games.append({'name': name, 'link': link, 'tags': tags,
+        games.append({'name': name, 'link': link,
                       'review_pct': review_pct, 'review_cnt': review_cnt,
                       'price': price, 'discount': discount})
 
@@ -114,7 +114,7 @@ for page in range(max(PAGES, 1)):
     if len(rows) == 0:
         break
 
-# sort games by discount
+# remove duplicates and sort
 
 games.sort(key=lambda row: row['discount'], reverse=True)
 
@@ -128,6 +128,12 @@ sheet['B1'].value = 'RATING'
 sheet['C1'].value = 'REVIEWS'
 sheet['D1'].value = 'PRICE'
 sheet['E1'].value = 'DISCOUNT'
+
+sheet['A1'].alignment = Alignment(horizontal='left')
+sheet['B1'].alignment = Alignment(horizontal='right')
+sheet['C1'].alignment = Alignment(horizontal='right')
+sheet['D1'].alignment = Alignment(horizontal='right')
+sheet['E1'].alignment = Alignment(horizontal='right')
 
 sheet.column_dimensions['A'].width = 40
 sheet.column_dimensions['B'].width = 10
@@ -145,16 +151,16 @@ for i, game in enumerate(games):
     sheet[f'A{row}'].hyperlink = game['link']
     sheet[f'A{row}'].style = 'Hyperlink'
 
-    sheet[f'B{row}'].value = game["review_pct"] / 100
+    sheet[f'B{row}'].value = game['review_pct'] / 100
     sheet[f'B{row}'].number_format = '0%'
 
     sheet[f'C{row}'].value = game['review_cnt']
     sheet[f'C{row}'].number_format = '#,##0'
 
-    sheet[f'D{row}'].value = game["price"]
+    sheet[f'D{row}'].value = game['price']
     sheet[f'D{row}'].number_format = '#,##0.00\\ [$€-1]'
 
-    sheet[f'E{row}'].value = game["discount"] / 100
+    sheet[f'E{row}'].value = game['discount'] / 100
     sheet[f'E{row}'].number_format = '0%'
 
 workbook.save('result.xlsx')
