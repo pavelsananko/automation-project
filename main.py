@@ -3,12 +3,14 @@ from bs4 import BeautifulSoup
 from openpyxl import Workbook
 
 BASE_URL = 'https://store.steampowered.com/search/?start={0}&count=50&maxprice={1}&category1=998&untags=3799%2C4085%2C9130%2C9551&unvrsupport=401&os=win&supportedlang=english'
-PAGES = 5
+PAGES = 10
 
 MIN_REVIEW_PERCENT = 80
 MIN_REVIEW_COUNT = 1000
 MAX_PRICE = 30
-TAGS = []
+
+# platformer, fps, puzzle
+TAGS = [1625, 1663, 1664]
 
 # fetch games from steam store
 
@@ -66,7 +68,7 @@ for page in range(max(PAGES, 1)):
         elem = row.find(class_='discount_pct')
 
         if elem:
-            discount = int(elem.text[:-1])
+            discount = int(elem.text[1:-1])
         else:
             discount = 0
 
@@ -94,7 +96,7 @@ print('Fetching complete')
 
 # sort games by discount
 
-games.sort(key=lambda row: row['discount'])
+games.sort(key=lambda row: row['discount'], reverse=True)
 
 # write games to file
 
@@ -112,6 +114,9 @@ sheet.column_dimensions['B'].width = 10
 sheet.column_dimensions['C'].width = 10
 sheet.column_dimensions['D'].width = 10
 sheet.column_dimensions['E'].width = 10
+
+# sticky first row
+sheet.freeze_panes = sheet['A2']
 
 for i, game in enumerate(games):
     row = i + 2
@@ -131,8 +136,6 @@ for i, game in enumerate(games):
 
     sheet[f'E{row}'].value = game["discount"] / 100
     sheet[f'E{row}'].number_format = '0%'
-
-    # TODO: color code cells for easy reading
 
 workbook.save('result.xlsx')
 
