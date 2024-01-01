@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from openpyxl import Workbook
 
 BASE_URL = 'https://store.steampowered.com/search/?start={0}&count=50&maxprice={1}&category1=998&untags=3799%2C4085%2C9130%2C9551&unvrsupport=401&os=win&supportedlang=english'
-PAGES = 1
+PAGES = 5
 
 MIN_REVIEW_PERCENT = 80
 MIN_REVIEW_COUNT = 1000
@@ -32,8 +32,8 @@ for page in range(max(PAGES, 1)):
     rows = content.find_all(class_='search_result_row')
 
     for row in rows:
-        link = row.get('href').split('?')[0]
         name = row.find(class_='title').text
+        link = row.get('href').split('?')[0]
 
         # get tags
 
@@ -66,7 +66,7 @@ for page in range(max(PAGES, 1)):
         elem = row.find(class_='discount_pct')
 
         if elem:
-            discount = int(elem.text[1:-1])
+            discount = int(elem.text[:-1])
         else:
             discount = 0
 
@@ -81,7 +81,7 @@ for page in range(max(PAGES, 1)):
         if len(TAGS) > 0 and not any(tag in tags for tag in TAGS):
             continue
 
-        games.append({'link': link, 'name': name, 'tags': tags,
+        games.append({'name': name, 'link': link, 'tags': tags,
                       'review_pct': review_pct, 'review_cnt': review_cnt,
                       'price': price, 'discount': discount})
 
@@ -92,18 +92,48 @@ for page in range(max(PAGES, 1)):
 
 print('Fetching complete')
 
-# sort results by discount
+# sort games by discount
 
-games.sort(key=lambda row: row['discount'], reverse=True)
+games.sort(key=lambda row: row['discount'])
 
-# write results to file
-
-# TODO: output into a file
-#with open('test.txt', '+w') as file:
-#    for game in games:
-#        file.write(str(game) + '\n')
+# write games to file
 
 workbook = Workbook()
-workbook.save('test.xlsx')
+sheet = workbook.active
+
+sheet['A1'].value = 'NAME'
+sheet['B1'].value = 'RATING'
+sheet['C1'].value = 'REVIEWS'
+sheet['D1'].value = 'PRICE'
+sheet['E1'].value = 'DISCOUNT'
+
+sheet.column_dimensions['A'].width = 40
+sheet.column_dimensions['B'].width = 10
+sheet.column_dimensions['C'].width = 10
+sheet.column_dimensions['D'].width = 10
+sheet.column_dimensions['E'].width = 10
+
+for i, game in enumerate(games):
+    row = i + 2
+
+    sheet[f'A{row}'].value = game['name']
+    sheet[f'A{row}'].hyperlink = game['link']
+    sheet[f'A{row}'].style = 'Hyperlink'
+
+    sheet[f'B{row}'].value = game["review_pct"] / 100
+    sheet[f'B{row}'].number_format = '0%'
+
+    sheet[f'C{row}'].value = game['review_cnt']
+    sheet[f'C{row}'].number_format = '#,##0'
+
+    sheet[f'D{row}'].value = game["price"]
+    sheet[f'D{row}'].number_format = '#,##0.00\\ [$€-1]'
+
+    sheet[f'E{row}'].value = game["discount"] / 100
+    sheet[f'E{row}'].number_format = '0%'
+
+    # TODO: color code cells for easy reading
+
+workbook.save('result.xlsx')
 
 print(f'\n{len(games)} games found!')
