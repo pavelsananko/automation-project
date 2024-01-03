@@ -8,7 +8,7 @@ MIN_REVIEW_COUNT = 1000
 MAX_PRICE = 30
 TAGS = ['platformer', 'fps', 'puzzle']
 
-PAGES = 10
+PAGES = 100
 
 # fetch tag ids
 
