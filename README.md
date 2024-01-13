@@ -20,4 +20,10 @@ Projekta izstrādē tika izmantotas trīs bibliotēkas:
 
 ## Lietošana
 
+Lai palaistu skriptu, izmantojiet komandu:
+
+```
+python main.py
+```
+
 {...}

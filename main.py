@@ -3,18 +3,22 @@ from bs4 import BeautifulSoup
 from openpyxl import Workbook
 from openpyxl.styles import Alignment
 
-MIN_REVIEW_PERCENT = 80
-MIN_REVIEW_COUNT = 1000
-MAX_PRICE = 30
-TAGS = ['fps', 'puzzle', 'platformer']
+# input search settings
 
-PAGES = 10
+MIN_REVIEW_PCT = int(input('Min review percent: '))
+MIN_REVIEW_CNT = int(input('Min review count:   '))
+MAX_PRICE =      int(input('Max product price:  '))
+TAGS =           str(input('Tags to search:     ')).split(',')
+PAGES =          int(input('Pages to scrape:    '))
+
+print()
 
 # fetch tag ids
 
 tag_ids = []
 
 for tag in TAGS:
+    tag = tag.strip()
     print(f'Fetching tag "{tag}"')
 
     # send request and validate response
@@ -31,10 +35,11 @@ for tag in TAGS:
     content = BeautifulSoup(response.content, 'html.parser')
     elem = content.find(id='application_config')
 
-    tag_id = elem.get('data-ch_hub_data')
-    tag_id = int(tag_id.split(':')[-1][:-1])
+    if elem:
+        tag_id = elem.get('data-ch_hub_data')
+        tag_id = int(tag_id.split(':')[-1][:-1])
 
-    tag_ids.append(tag_id)
+        tag_ids.append(tag_id)
 
 print()
 
@@ -100,10 +105,10 @@ for page in range(max(PAGES, 1)):
 
         # filter and add to list
 
-        if review_pct < MIN_REVIEW_PERCENT:
+        if review_pct < MIN_REVIEW_PCT:
             continue
 
-        if review_cnt < MIN_REVIEW_COUNT:
+        if review_cnt < MIN_REVIEW_CNT:
             continue
 
         if len(tag_ids) > 0 and not any(tag in tags for tag in tag_ids):
