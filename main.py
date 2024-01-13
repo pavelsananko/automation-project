@@ -6,9 +6,9 @@ from openpyxl.styles import Alignment
 MIN_REVIEW_PERCENT = 80
 MIN_REVIEW_COUNT = 1000
 MAX_PRICE = 30
-TAGS = ['platformer', 'fps', 'puzzle']
+TAGS = ['fps', 'puzzle', 'platformer']
 
-PAGES = 100
+PAGES = 10
 
 # fetch tag ids
 
@@ -17,12 +17,16 @@ tag_ids = []
 for tag in TAGS:
     print(f'Fetching tag "{tag}"')
 
+    # send request and validate response
+
     url = f'https://store.steampowered.com/tags/en/{tag}'
     response = requests.get(url, timeout=30)
 
     if response.status_code != 200:
         print(f'Error fetching tag "{tag}" ({response.status_code})')
         continue
+
+    # parse data from response
 
     content = BeautifulSoup(response.content, 'html.parser')
     elem = content.find(id='application_config')
