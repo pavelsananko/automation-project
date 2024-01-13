@@ -1,16 +1,24 @@
-# Steam store scraper
+# Automatizēšanas projekts "Steam Store Scraper"
 
-## Projekta uzdevums
+Autors: Pāvels Ananko, 231RDB106
 
-detalizets projekta uzdevums, ko programma dara
+## Uzdevums
 
-## Izmantotās bibliotēkas
+{detalizets projekta uzdevums, ko programma dara}
 
-izmantotas bibliotekas un kapec tas tika izmantotas
+## Bibliotēkas
 
-## Izmantošanas metodes
+Projekta izstrādē tika izmantotas trīs bibliotēkas:
 
-programmas izmantosanas metodes
+* **Requests** datu iegūšanai no interneta;
+
+* **BeautifulSoup4** iegūto datu parsēšanai;
+
+* **OpenPyXL** rezultātu saglabāšanai izklājlapā.
+
+## Lietošana
+
+{...}
 
 
 
