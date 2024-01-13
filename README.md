@@ -12,11 +12,11 @@ Noslēguma projekts ir jūsu iespēja izmantot jauniegūtās prasmes, lai izstr�
 
 Projekta izstrādē tika izmantotas trīs bibliotēkas:
 
-* [**Requests**](https://pypi.org/project/requests/) datu iegūšanai no interneta;
+* [Requests](https://pypi.org/project/requests/) datu iegūšanai no interneta;
 
-* [**BeautifulSoup4**](https://pypi.org/project/beautifulsoup4/) iegūto datu parsēšanai;
+* [BeautifulSoup4](https://pypi.org/project/beautifulsoup4/) iegūto datu parsēšanai;
 
-* [**OpenPyXL**](https://pypi.org/project/openpyxl/) rezultātu saglabāšanai izklājlapā.
+* [OpenPyXL](https://pypi.org/project/openpyxl/) rezultātu saglabāšanai izklājlapā.
 
 ## Lietošana
 
