@@ -1,29 +1,23 @@
 # Automatizēšanas projekts "Steam Store Scraper"
 
-Autors: Pāvels Ananko, 231RDB106
+Darba autors: Pāvels Ananko, 231RDB106
 
 ## Uzdevums
 
-{detalizets projekta uzdevums, ko programma dara}
+Noslēguma projekts ir jūsu iespēja izmantot jauniegūtās prasmes, lai izstrādātu pilnvērtīgo programmatūru noteikto uzdevuma risināšanai. Projektā jāizmanto zināšanas, kas ir iegūtas kursa laikā, bet projekta uzdevumu jāģenerē jums pašiem. Mēs gribam, lai Jūs izveidotu sistēmu, kas automatizēs kādu no jūsu ikdienas uzdevumiem.
+
+{pasgeneretais uzdevums}
 
 ## Bibliotēkas
 
 Projekta izstrādē tika izmantotas trīs bibliotēkas:
 
-* **Requests** datu iegūšanai no interneta;
+* [**Requests**](https://pypi.org/project/requests/) datu iegūšanai no interneta;
 
-* **BeautifulSoup4** iegūto datu parsēšanai;
+* [**BeautifulSoup4**](https://pypi.org/project/beautifulsoup4/) iegūto datu parsēšanai;
 
-* **OpenPyXL** rezultātu saglabāšanai izklājlapā.
+* [**OpenPyXL**](https://pypi.org/project/openpyxl/) rezultātu saglabāšanai izklājlapā.
 
 ## Lietošana
 
 {...}
-
-
-
-
-
----
-
-(vairaki simti vardu - 300?)
