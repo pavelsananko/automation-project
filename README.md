@@ -38,4 +38,6 @@ Ievadiet filtrus:
 | `Tags to search`     | Tagi vai žanri                          | Teksts, atdalīti ar komatu     | fps, puzzle |
 | `Pages to scrape`    | Meklēto lapu skaits                     | Vesels skaitlis, vismaz 1      | 20          |
 
+ℹ️ Ievadot tagus, tiem jāatbilst to Steam lapām. Piemēram, lai meklētu [First Person Shooter](https://store.steampowered.com/tags/en/FPS) spēles, jāievada `fps`.
+
 {...}
