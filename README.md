@@ -10,15 +10,15 @@ Noslēguma projekts ir jūsu iespēja izmantot jauniegūtās prasmes, lai izstr�
 
 ### Pašģenerētais uzdevums
 
-Izveidot tīmekļa skrāpēšanas rīku, kas atvieglo datorspēļu meklēšanu internetveikalā [Steam](https://store.steampowered.com/). Jābūt iespējai atlasīt datorspēles pēc to atsauksmju procentuālās vērtības, atsauksmju daudzuma, cenas un tagiem. Jābūt iespējai norādīt maksimālo skrāpēto lapu skaitu. Atlasītās datorspēles jāsaglabā izklājlapā un jāsakārto pēc atlaides.
+Izveidot tīmekļa skrāpēšanas rīku, kas atvieglo datorspēļu meklēšanu internetveikalā [**Steam**](https://store.steampowered.com/). Jābūt iespējai atlasīt datorspēles pēc to atsauksmju procentuālās vērtības, atsauksmju daudzuma, cenas un tagiem. Jābūt iespējai norādīt maksimālo skrāpēto lapu skaitu. Atlasītās datorspēles jāsaglabā izklājlapā un jāsakārto pēc atlaides.
 
 ## Izmantotās bibliotēkas
 
-[Requests](https://pypi.org/project/requests/) interneta lapas satura iegūšanai.
+[**Requests**](https://pypi.org/project/requests/) interneta lapas satura iegūšanai.
 
-[BeautifulSoup4](https://pypi.org/project/beautifulsoup4/) iegūtā satura parsēšanai.
+[**BeautifulSoup4**](https://pypi.org/project/beautifulsoup4/) iegūtā satura parsēšanai.
 
-[OpenPyXL](https://pypi.org/project/openpyxl/) rezultātu saglabāšanai izklājlapā.
+[**OpenPyXL**](https://pypi.org/project/openpyxl/) rezultātu saglabāšanai izklājlapā.
 
 ## Lietošanas instrukcija
 
