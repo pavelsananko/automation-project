@@ -34,7 +34,7 @@ Ievadiet spēļu meklēšanas iestatījumus:
 |--------------------|-----------------------------------------|--------------------------------|-------------|
 | Min review percent | Minimālā atsauksmju procentuālā vērtība | Vesels skaitlis, no 0 līdz 100 | 80          |
 | Min review count   | Minimālais atsauksmju skaits            | Vesels skaitlis, vismaz 0      | 1000        |
-| Max product price  | Maksimālā cena                          | Reāls skaitlis, vismaz 0       | 30          |
+| Max product price  | Maksimālā cena                          | Vesels skaitlis, vismaz 0      | 30          |
 | Tags to search     | Tagi vai žanri                          | Teksts, atdalīti ar komatu     | fps, puzzle |
 | Pages to scrape    | Meklēto lapu skaits                     | Vesels skaitlis, vismaz 1      | 20          |
 
