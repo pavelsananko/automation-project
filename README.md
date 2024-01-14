@@ -24,13 +24,13 @@ Izveidot tīmekļa skrāpēšanas rīku, kas atvieglo datorspēļu meklēšanu i
 
 Lai palaistu rīku, izmantojiet komandu:
 
-```
+```sh
 python main.py
 ```
 
-Ievadiet filtrus:
+Ievadiet spēļu meklēšanas iestatījumus:
 
-| Filtrs               | Apraksts                                | Atļautās vērtības              | Piemērs     |
+| Iestatījums          | Apraksts                                | Atļautās vērtības              | Piemērs     |
 |----------------------|-----------------------------------------|--------------------------------|-------------|
 | `Min review percent` | Minimālā atsauksmju procentuālā vērtība | Vesels skaitlis, no 0 līdz 100 | 80          |
 | `Min review count`   | Minimālais atsauksmju skaits            | Vesels skaitlis, vismaz 0      | 1000        |
