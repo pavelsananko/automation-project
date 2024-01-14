@@ -7,9 +7,9 @@ from openpyxl.styles import Alignment
 
 MIN_REVIEW_PCT = int(input('Min review percent: '))
 MIN_REVIEW_CNT = int(input('Min review count:   '))
-MAX_PRICE =      int(input('Max product price:  '))
-TAGS =           str(input('Tags to search:     ')).split(',')
-PAGES =          int(input('Pages to scrape:    '))
+MAX_PRICE      = int(input('Max product price:  '))
+TAGS           = str(input('Tags to search:     ')).split(',')
+PAGES          = int(input('Pages to scrape:    '))
 
 print()
 
