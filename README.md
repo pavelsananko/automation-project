@@ -1,4 +1,4 @@
-# Automatizēšanas projekts "Steam Store Scraper"
+# Automatizēšanas projekts
 
 Darba autors: Pāvels Ananko, 231RDB106
 
@@ -10,16 +10,13 @@ Noslēguma projekts ir jūsu iespēja izmantot jauniegūtās prasmes, lai izstr�
 
 ### Pašģenerētais uzdevums
 
-Izveidot tīmekļa skrāpēšanas programmu, kas meklē datorspēles internetveikalā Steam un saglabā tās izklājlapā.
+Izveidot tīmekļa skrāpēšanas rīku, kas atvieglo datorspēļu meklēšanu internetveikalā Steam.
 
-Palaižot programmu, lietotājam jābūt iespējai norādīt filtrus:
-* minimālais atsauksmju procents,
-* minimālais atsauksmju daudzums,
-* maksimālā datorspēles cena,
-* pieļauto tagu/žanru saraksts,
-* maksimālais meklēto lapu daudzums.
+Jābūt iespējai norādīt atlasīšanas filtrus - minimālo atsauksmju procentuālo vērtību, atsauksmju daudzumu, maksimālo cenu, un atļauto tagu/žanru sarakstu.
 
-Programmai jāsaglabā atlasītās datorspēles un to galvenie dati izklājlapā, kārtojot tās pēc atlaides dilstošā secībā.
+Jābūt iespējai norādīt maksimālo skrāpēto lapu skaitu (katra lapa satur 50 datorspēles pirms atlasīšanas).
+
+Jāsaglabā atlasītās datorspēles un to galvenie dati izklājlapā, kārtojot tās pēc atlaides dilstošā secībā.
 
 ## Izmantotās bibliotēkas
 
@@ -31,7 +28,7 @@ Programmai jāsaglabā atlasītās datorspēles un to galvenie dati izklājlapā
 
 ## Lietošanas instrukcija
 
-Lai palaistu programmu, izmantojiet komandu:
+Lai palaistu rīku, izmantojiet komandu:
 
 ```
 python main.py
