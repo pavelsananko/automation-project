@@ -14,11 +14,11 @@ Izveidot tīmekļa skrāpēšanas rīku, kas atvieglo datorspēļu meklēšanu i
 
 ## Izmantotās bibliotēkas
 
-[Requests](https://pypi.org/project/requests/) interneta lapas satura iegūšanai.
+1. [Requests](https://pypi.org/project/requests/) interneta lapas satura iegūšanai.
 
-[BeautifulSoup4](https://pypi.org/project/beautifulsoup4/) iegūtā satura parsēšanai.
+2. [BeautifulSoup4](https://pypi.org/project/beautifulsoup4/) iegūtā satura parsēšanai.
 
-[OpenPyXL](https://pypi.org/project/openpyxl/) rezultātu saglabāšanai izklājlapā.
+3. [OpenPyXL](https://pypi.org/project/openpyxl/) rezultātu saglabāšanai izklājlapā.
 
 ## Lietošanas instrukcija
 
