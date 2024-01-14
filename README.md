@@ -24,7 +24,7 @@ Izveidot tīmekļa skrāpēšanas rīku, kas atvieglo datorspēļu meklēšanu i
 
 Lai palaistu rīku, izmantojiet komandu:
 
-```sh
+```
 python main.py
 ```
 
