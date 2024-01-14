@@ -10,7 +10,7 @@ Noslēguma projekts ir jūsu iespēja izmantot jauniegūtās prasmes, lai izstr�
 
 ### Pašģenerētais uzdevums
 
-Izveidot tīmekļa skrāpēšanas rīku, kas atvieglo datorspēļu meklēšanu internetveikalā [Steam](https://store.steampowered.com/). Jābūt iespējai atlasīt datorspēles pēc to atsauksmju procentuālās vērtības, atsauksmju daudzuma, cenas un tagiem. Jābūt iespējai norādīt maksimālo skrāpēto lapu skaitu. Atlasītās datorspēles jāsaglabā izklājlapā, kārtojot tās pēc atlaides dilstošā secībā.
+Izveidot tīmekļa skrāpēšanas rīku, kas atvieglo datorspēļu meklēšanu internetveikalā [Steam](https://store.steampowered.com/). Jābūt iespējai atlasīt datorspēles pēc to atsauksmju procentuālās vērtības, atsauksmju daudzuma, cenas un tagiem. Jābūt iespējai norādīt maksimālo skrāpēto lapu skaitu. Atlasītās datorspēles jāsaglabā izklājlapā un jāsakārto pēc atlaides.
 
 ## Izmantotās bibliotēkas
 
