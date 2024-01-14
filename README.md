@@ -12,8 +12,10 @@ Noslēguma projekts ir jūsu iespēja izmantot jauniegūtās prasmes, lai izstr�
 
 Izveidot tīmekļa skrāpēšanas rīku, kas atvieglo datorspēļu meklēšanu internetveikalā Steam.
 
-Jābūt iespējai atlasīt datorspēles pēc to atsauksmju procentuālās vērtības, atsauksmju daudzuma, cenas, un tagiem.<br>
-Jābūt iespējai norādīt maksimālo skrāpēto lapu skaitu (katra lapa satur 50 datorspēles pirms atlasīšanas).<br>
+Jābūt iespējai atlasīt datorspēles pēc to atsauksmju procentuālās vērtības, atsauksmju daudzuma, cenas, tagiem.
+
+Jābūt iespējai norādīt maksimālo skrāpēto lapu skaitu (katra lapa satur 50 datorspēles **pirms atlasīšanas**).
+
 Jāsaglabā atlasītās datorspēles un to galvenie dati izklājlapā, kārtojot tās pēc atlaides dilstošā secībā.
 
 ## Izmantotās bibliotēkas
