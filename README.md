@@ -38,9 +38,9 @@ Ievadiet spēļu meklēšanas iestatījumus:
 | Tags to search     | Tagi vai žanri                          | Teksts, atdalīti ar komatu*    | fps, puzzle |
 | Pages to scrape    | Meklēto lapu skaits                     | Vesels skaitlis, vismaz 1      | 20          |
 
-> **Ievadot tagu, tam jāatbilst tā Steam lapai. Piemēram, lai meklētu [First Person Shooter](https://store.steampowered.com/tags/en/FPS) spēles, jāievada `fps`.*
+> ⚠️ *Ievadot tagu, tam jāatbilst tā Steam lapai. Piemēram, lai meklētu [First Person Shooter](https://store.steampowered.com/tags/en/FPS) spēles, jāievada `fps`.*
 
-Atlasītās spēles tiek saglabātas failā `result.xlsx`.
+Atlasītās spēles tiks saglabātas failā `result.xlsx`.
 
 ## Sistēmas tehniskais apraksts
 
