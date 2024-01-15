@@ -46,7 +46,7 @@ Tad rīks skrāpē spēļu kataloga lapas līdz norādītajam meklēto lapu skai
 
 ⚠️ *Tā kā spēles var būt bez maksas vai bez atlaides, rīks pārbauda cenas un atlaides esamību pirms izmantošanas.*
 
-Pēc kataloga lapu skrāpēšanas, atlasīto spēļu saraksts tiek saglabāts Excel izklājlapu failā. Šis fails sastāv no kolonnām - nosaukums (ar hipersaiti uz spēles lapu), atsauksmju procentuālā vērtība, atsauksmju daudzums, cena, atlaide. Kolonnas tiek formatētas attiecīgi to saturam un galvene (pirmā rinda) ir sasaldēta.
+Pēc kataloga lapu skrāpēšanas, atlasīto spēļu saraksts tiek saglabāts Excel izklājlapu failā. Šis fails sastāv no kolonnām - nosaukums (ar hipersaiti uz spēles lapu), atsauksmju procentuālā vērtība, atsauksmju daudzums, cena, atlaide. Šīs kolonnas tiek formatētas attiecīgi to saturam un galvene (pirmā rinda) ir sasaldēta.
 
 ## Izmantotās bibliotēkas
 
