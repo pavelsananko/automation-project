@@ -30,9 +30,9 @@ Ievadiet spēļu meklēšanas iestatījumus:
 | Tags to search     | Tagi vai žanri                          | Teksts, atdalīti ar komatu     | fps, puzzle |
 | Pages to scrape    | Meklēto lapu skaits                     | Vesels skaitlis, vismaz 1      | 20          |
 
-> ⚠️ *Ievadot tagu, tam jāatbilst tā Steam lapai. Piemēram, lai meklētu [First Person Shooter](https://store.steampowered.com/tags/en/FPS) spēles, jāievada `fps`.*
->
-> ⚠️ *Atšķirībā no parastās Steam meklēšanas, spēle tiks atlasīta, ja tās tagi satur vismaz vienu no meklētajiem tagiem.*
+⚠️ *Ievadot tagu, tam jāatbilst tā Steam lapai. Piemēram, lai meklētu [First Person Shooter](https://store.steampowered.com/tags/en/FPS) spēles, jāievada `fps`.*
+
+⚠️ *Atšķirībā no parastās Steam meklēšanas, spēle tiks atlasīta, ja tās tagi satur vismaz vienu no meklētajiem tagiem.*
 
 📝 *Atlasītās spēles tiks saglabātas failā `result.xlsx`.*
 
@@ -43,6 +43,8 @@ Pirms meklēšanas, rīks prasa ievadīt meklēšanas iestatījumus un pārveido
 Pēc iestatījumu ievadīšanas, tas skrāpē katra ievadītā taga Steam lapu, atrod tā identifikatoru lapas HTML saturā, un pievieno to meklēto tagu identifikatoru sarakstam.
 
 Tad rīks skrāpē spēļu kataloga lapas līdz norādītajam meklēto lapu skaitam (vai kataloga beigām, ja tas tiek sasniegts). Katras lapas HTML saturā tas atrod visus spēļu ierakstu elementus un iziet tiem cauri ar ciklu. Katras spēles ieraksta saturā rīks atrod spēles nosaukumu, hipersaiti uz spēles lapu, tās tagu sarakstu, atsauksmju procentuālo vērtību un daudzumu, cenu, un atlaidi. Pirms pievienot spēles datus atlasīto spēļu sarakstam, tiek pārbaudīts, vai tie atbilst meklēšanas iestatījumiem. Atlasītās spēles tiek sakārtotas pēc atlaides dilstošā secībā.
+
+⚠️ *Tā kā katalogā spēles var būt bez maksas vai bez atlaides, rīks pārbauda cenas un atlaides esamību pirms to izmantošanas.*
 
 Pēc kataloga lapu skrāpēšanas, atlasīto spēļu saraksts tiek saglabāts Excel izklājlapu failā. Šis fails sastāv no kolonnām - nosaukums (ar hipersaiti uz spēles lapu), atsauksmju procentuālā vērtība, atsauksmju daudzums, cena, atlaide. Kolonnas tiek formatētas attiecīgi to saturam un galvene (pirmā rinda) ir sasaldēta.
 
