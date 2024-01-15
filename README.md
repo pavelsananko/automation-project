@@ -44,7 +44,7 @@ Pēc iestatījumu ievadīšanas, tas skrāpē katra ievadītā taga Steam lapu, 
 
 Tad rīks skrāpē spēļu kataloga lapas līdz norādītajam meklēto lapu skaitam (vai kataloga beigām, ja tas tiek sasniegts). Katras lapas HTML saturā tas atrod visus spēļu ierakstu elementus un iziet tiem cauri ar ciklu. Katras spēles ieraksta saturā rīks atrod spēles nosaukumu, hipersaiti uz spēles lapu, tās tagu sarakstu, atsauksmju procentuālo vērtību un daudzumu, cenu, un atlaidi. Pirms pievienot spēles datus atlasīto spēļu sarakstam, tiek pārbaudīts, vai tie atbilst meklēšanas iestatījumiem. Atlasītās spēles tiek sakārtotas pēc atlaides dilstošā secībā.
 
-Pēc kataloga lapu skrāpēšanas, atlasīto spēļu saraksts tiek saglabāts Excel izklājlapu failā. Šis fails sastāv no kolonnām - nosaukums (ar hipersaiti uz spēles lapu), atsauksmju procentuālā vērtība, atsauksmju daudzums, cena, atlaide.
+Pēc kataloga lapu skrāpēšanas, atlasīto spēļu saraksts tiek saglabāts Excel izklājlapu failā. Šis fails sastāv no kolonnām - nosaukums (ar hipersaiti uz spēles lapu), atsauksmju procentuālā vērtība, atsauksmju daudzums, cena, atlaide. Kolonnas tiek formatētas attiecīgi to saturam un galvene (pirmā rinda) ir sasaldēta.
 
 ## Izmantotās bibliotēkas
 
