@@ -40,6 +40,8 @@ Ievadiet spēļu meklēšanas iestatījumus:
 
 ⚠️ *Ievadot tagu, tam jāatbilst tā Steam lapai. Piemēram, lai meklētu [First Person Shooter](https://store.steampowered.com/tags/en/FPS) spēles, jāievada `fps`.*
 
+⚠️ *Atšķirībā no parastās Steam meklēšanas, spēle tiks atlasīta, ja tās tagi satur vismaz vienu no meklētajiem tagiem.*
+
 📝 *Atlasītās spēles tiks saglabātas failā `result.xlsx`.*
 
 ## Rīka tehniskais apraksts
@@ -48,4 +50,4 @@ Pirms meklēšanas, rīks prasa ievadīt meklēšanas iestatījumus un pārveido
 
 Pēc iestatījumu ievadīšanas, tas atver katra ievadītā taga Steam lapu, atrod tā identifikatoru lapas HTML saturā, un pievieno to meklēto tagu identifikatoru sarakstam.
 
-Tad rīks atver spēļu kataloga lapas līdz norādītajam meklēto lapu skaitam (vai kataloga beigām, ja tas tiek sasniegts). Katras lapas HTML saturā tas atrod visus spēļu ierakstu elementus un iziet tiem cauri ar ciklu. Katras spēles ieraksta saturā rīks atrod spēles nosaukumu, hipersaiti uz tās lapu, tagu sarakstu, atsauksmju procentuālo vērtību un daudzumu, cenu, un atlaidi.
+Tad rīks atver spēļu kataloga lapas līdz norādītajam meklēto lapu skaitam (vai kataloga beigām, ja tas tiek sasniegts). Katras lapas HTML saturā tas atrod visus spēļu ierakstu elementus un iziet tiem cauri ar ciklu. Katras spēles ieraksta saturā rīks atrod spēles nosaukumu, hipersaiti uz spēles lapu, tās tagu sarakstu, atsauksmju procentuālo vērtību un daudzumu, cenu, un atlaidi. Pirms iegūto spēles datu pievienošanai sarakstam, tiek pārbaudīts, vai tie atbilst meklēšanas iestatījumiem.
