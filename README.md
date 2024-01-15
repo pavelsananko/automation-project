@@ -12,14 +12,6 @@ Noslēguma projekts ir jūsu iespēja izmantot jauniegūtās prasmes, lai izstr�
 
 Izveidot tīmekļa skrāpēšanas rīku, kas atvieglo datorspēļu meklēšanu internetveikalā [Steam](https://store.steampowered.com/). Jābūt iespējai atlasīt datorspēles pēc to atsauksmju procentuālās vērtības, atsauksmju daudzuma, cenas un tagiem. Jābūt arī iespējai norādīt maksimālo skrāpēto lapu skaitu. Atlasīto datorspēļu dati jāsaglabā izklājlapā un jāsakārto pēc atlaides.
 
-## Izmantotās bibliotēkas
-
-[Requests](https://pypi.org/project/requests/) interneta lapas satura iegūšanai.
-
-[BeautifulSoup4](https://pypi.org/project/beautifulsoup4/) iegūtā satura parsēšanai.
-
-[OpenPyXL](https://pypi.org/project/openpyxl/) rezultātu saglabāšanai izklājlapā.
-
 ## Lietošanas instrukcija
 
 Lai palaistu rīku, izmantojiet komandu:
@@ -44,7 +36,7 @@ Ievadiet spēļu meklēšanas iestatījumus:
 
 📝 *Atlasītās spēles tiks saglabātas failā `result.xlsx`.*
 
-## Rīka tehniskais apraksts
+## Rīka darbības apraksts
 
 Pirms meklēšanas, rīks prasa ievadīt meklēšanas iestatījumus un pārveido tos pareizajos datu tipos.
 
@@ -53,3 +45,11 @@ Pēc iestatījumu ievadīšanas, tas skrāpē katra ievadītā taga Steam lapu, 
 Tad rīks skrāpē spēļu kataloga lapas līdz norādītajam meklēto lapu skaitam (vai kataloga beigām, ja tas tiek sasniegts). Katras lapas HTML saturā tas atrod visus spēļu ierakstu elementus un iziet tiem cauri ar ciklu. Katras spēles ieraksta saturā rīks atrod spēles nosaukumu, hipersaiti uz spēles lapu, tās tagu sarakstu, atsauksmju procentuālo vērtību un daudzumu, cenu, un atlaidi. Pirms pievienot spēles datus atlasīto spēļu sarakstam, tiek pārbaudīts, vai tie atbilst meklēšanas iestatījumiem. Atlasītās spēles tiek sakārtotas pēc atlaides dilstošā secībā.
 
 Pēc kataloga lapu skrāpēšanas, atlasīto spēļu saraksts tiek saglabāts Excel izklājlapu failā. Šis fails sastāv no kolonnām - nosaukums (ar hipersaiti uz spēles lapu), atsauksmju procentuālā vērtība, atsauksmju daudzums, cena, atlaide.
+
+## Izmantotās bibliotēkas
+
+[Requests](https://pypi.org/project/requests/) interneta lapas satura iegūšanai.
+
+[BeautifulSoup4](https://pypi.org/project/beautifulsoup4/) iegūtā satura parsēšanai.
+
+[OpenPyXL](https://pypi.org/project/openpyxl/) rezultātu saglabāšanai izklājlapā.
