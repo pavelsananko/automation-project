@@ -30,9 +30,9 @@ Ievadiet spēļu meklēšanas iestatījumus:
 | Tags to search     | Tagi vai žanri                          | Teksts, atdalīti ar komatu     | fps, puzzle |
 | Pages to scrape    | Meklēto lapu skaits                     | Vesels skaitlis, vismaz 1      | 20          |
 
-⚠️ *Ievadot tagu, tam jāatbilst tā Steam lapai. Piemēram, lai meklētu [First Person Shooter](https://store.steampowered.com/tags/en/FPS) spēles, jāievada `fps`.*
-
-⚠️ *Atšķirībā no parastās Steam meklēšanas, spēle tiks atlasīta, ja tās tagi satur vismaz vienu no meklētajiem tagiem.*
+> ⚠️ *Ievadot tagu, tam jāatbilst tā Steam lapai. Piemēram, lai meklētu [First Person Shooter](https://store.steampowered.com/tags/en/FPS) spēles, jāievada `fps`.*
+>
+> ⚠️ *Atšķirībā no parastās Steam meklēšanas, spēle tiks atlasīta, ja tās tagi satur vismaz vienu no meklētajiem tagiem.*
 
 📝 *Atlasītās spēles tiks saglabātas failā `result.xlsx`.*
 
