@@ -44,8 +44,8 @@ Ievadiet spēļu meklēšanas iestatījumus:
 
 ## Rīka tehniskais apraksts
 
-1. Rīks prasa ievadīt meklēšanas iestatījumus un pārveido tos pareizajos datu tipos.
+Pirms meklēšanas, rīks prasa ievadīt meklēšanas iestatījumus un pārveido tos pareizajos datu tipos.
 
-2. Tas atver katra ievadītā taga Steam lapu, atrod tā identifikatoru lapas HTML saturā, un pievieno to meklēto tagu identifikatoru sarakstam.
+Pēc iestatījumu ievadīšanas, tas atver katra ievadītā taga Steam lapu, atrod tā identifikatoru lapas HTML saturā, un pievieno to meklēto tagu identifikatoru sarakstam.
 
-3. Tas atver spēļu kataloga lapas līdz norādītajam meklēto lapu skaitam (vai kataloga beigām, ja tas tiek sasniegts).
+Tad rīks atver spēļu kataloga lapas līdz norādītajam meklēto lapu skaitam (vai kataloga beigām, ja tas tiek sasniegts). Katras lapas HTML saturā tas atrod visus spēļu ierakstu elementus un iziet tiem cauri ar ciklu. Katras spēles ieraksta saturā rīks atrod spēles nosaukumu, hipersaiti uz tās lapu, tagu sarakstu, atsauksmju procentuālo vērtību un daudzumu, cenu, un atlaidi.
