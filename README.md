@@ -28,7 +28,7 @@ Ievadiet spēļu meklēšanas iestatījumus:
 | Min review count   | Minimālais atsauksmju skaits            | Vesels skaitlis, vismaz 0      | 1000        |
 | Max product price  | Maksimālā cena                          | Vesels skaitlis, vismaz 0      | 30          |
 | Tags to search     | Tagi vai žanri                          | Teksts, atdalīti ar komatu     | fps, puzzle |
-| Pages to scrape    | Meklēto lapu skaits                     | Vesels skaitlis, vismaz 1      | 20          |
+| Pages to scrape    | Meklēto lapu skaits                     | Vesels skaitlis, vismaz 1      | 50          |
 
 ⚠️ *Ievadot tagu, tam jāatbilst tā Steam lapai. Piemēram, lai meklētu [First Person Shooter](https://store.steampowered.com/tags/en/FPS) spēles, jāievada `fps`.*
 
