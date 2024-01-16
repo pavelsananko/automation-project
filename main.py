@@ -1,3 +1,5 @@
+from math import ceil
+
 import requests
 from bs4 import BeautifulSoup
 from openpyxl import Workbook
@@ -11,8 +13,12 @@ filter_price      = int(input('Max product price:  '))
 filter_tags       = str(input('Tags to search:     ')).split(',')
 filter_pages      = int(input('Pages to scrape:    '))
 
+filter_price = ceil(filter_price / 5) * 5
 filter_tags = [t.strip() for t in filter_tags]
 filter_pages = max(filter_pages, 1)
+
+if filter_price == 0:
+    filter_price = 'free'
 
 print()
 
