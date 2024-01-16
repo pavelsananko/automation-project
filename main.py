@@ -5,11 +5,14 @@ from openpyxl.styles import Alignment
 
 # input search settings
 
-MIN_REVIEW_PCT = int(input('Min review percent: '))
-MIN_REVIEW_CNT = int(input('Min review count:   '))
-MAX_PRICE      = int(input('Max product price:  '))
-TAGS           = str(input('Tags to search:     ')).split(',')
-PAGES          = int(input('Pages to scrape:    '))
+filter_review_pct = int(input('Min review percent: '))
+filter_review_cnt = int(input('Min review count:   '))
+filter_price      = int(input('Max product price:  '))
+filter_tags       = str(input('Tags to search:     ')).split(',')
+filter_pages      = int(input('Pages to scrape:    '))
+
+filter_tags = [t.strip() for t in filter_tags]
+filter_pages = max(filter_pages, 1)
 
 print()
 
@@ -17,8 +20,7 @@ print()
 
 tag_ids = []
 
-for tag in TAGS:
-    tag = tag.strip()
+for tag in filter_tags:
     print(f'Fetching tag "{tag}"')
 
     # send request and validate response
@@ -47,12 +49,12 @@ print()
 
 games = []
 
-for page in range(max(PAGES, 1)):
-    print(f'Fetching page {page + 1}/{max(PAGES, 1)}')
+for page in range(filter_pages):
+    print(f'Fetching page {page + 1}/{filter_pages}')
 
     # send request and validate response
 
-    url = f'https://store.steampowered.com/search/?start={page * 50}&count=50&maxprice={MAX_PRICE}&category1=998&untags=3799%2C4085%2C9130%2C9551&unvrsupport=401&os=win&supportedlang=english'
+    url = f'https://store.steampowered.com/search/?start={page * 50}&count=50&maxprice={filter_price}&category1=998&untags=3799%2C4085%2C9130%2C9551&unvrsupport=401&os=win&supportedlang=english'
     response = requests.get(url, timeout=30)
 
     if response.status_code != 200:
@@ -105,10 +107,10 @@ for page in range(max(PAGES, 1)):
 
         # filter and add to list
 
-        if review_pct < MIN_REVIEW_PCT:
+        if review_pct < filter_review_pct:
             continue
 
-        if review_cnt < MIN_REVIEW_CNT:
+        if review_cnt < filter_review_cnt:
             continue
 
         if len(tag_ids) > 0 and not any(tag in tags for tag in tag_ids):
