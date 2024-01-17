@@ -13,12 +13,8 @@ filter_price      = int(input('Max product price:  '))
 filter_tags       = str(input('Tags to search:     ')).split(',')
 filter_pages      = int(input('Pages to scrape:    '))
 
-filter_price = ceil(filter_price / 5) * 5
 filter_tags = [t.strip() for t in filter_tags]
 filter_pages = max(filter_pages, 1)
-
-if filter_price == 0:
-    filter_price = 'free'
 
 print()
 
@@ -58,9 +54,15 @@ games = []
 for page in range(filter_pages):
     print(f'Fetching page {page + 1}/{filter_pages}')
 
+    req_start = page * 50
+    req_price = ceil(filter_price / 5) * 5
+
+    if req_price == 0:
+        req_price = 'free'
+
     # send request and validate response
 
-    url = f'https://store.steampowered.com/search/?start={page * 50}&count=50&maxprice={filter_price}&category1=998&untags=3799%2C4085%2C9130%2C9551&unvrsupport=401&os=win&supportedlang=english'
+    url = f'https://store.steampowered.com/search/?start={req_start}&count=50&maxprice={req_price}&category1=998&untags=3799%2C4085%2C9130%2C9551&unvrsupport=401&os=win&supportedlang=english'
     response = requests.get(url, timeout=30)
 
     if response.status_code != 200:
@@ -117,6 +119,9 @@ for page in range(filter_pages):
             continue
 
         if review_cnt < filter_review_cnt:
+            continue
+
+        if price > filter_price:
             continue
 
         if len(tag_ids) > 0 and not any(tag in tags for tag in tag_ids):
