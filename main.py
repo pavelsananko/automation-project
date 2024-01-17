@@ -136,7 +136,7 @@ for page in range(filter_pages):
     if len(rows) == 0:
         break
 
-# remove duplicates and sort
+# sort games by discount
 
 games.sort(key=lambda row: row['discount'], reverse=True)
 
@@ -163,8 +163,7 @@ sheet.column_dimensions['C'].width = 10
 sheet.column_dimensions['D'].width = 10
 sheet.column_dimensions['E'].width = 10
 
-# sticky first row
-sheet.freeze_panes = sheet['A2']
+sheet.freeze_panes = sheet['A2'] # sticky first row
 
 for i, game in enumerate(games):
     row = i + 2
